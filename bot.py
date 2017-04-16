@@ -125,10 +125,12 @@ def requestquery(input):
     elif(symptom):
         generateID(input)
     else:
-        if(response["result"]["parameters"]["simplified"]=="goodbye"):
-            print("Elixir: Take Care.")
-            sys.exit()
-        print("Elixir: "+response['result']['fulfillment']['speech'])
+        try:
+            if(response["result"]["parameters"]["simplified"]=="goodbye"):
+                print("Elixir: Take Care.")
+                sys.exit()
+        except:
+            print("Elixir: "+response['result']['fulfillment']['speech'])
 
 
 def main():
