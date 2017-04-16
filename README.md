@@ -1,3 +1,5 @@
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/p-mayank/Elixir/blob/master/LICENSE.md)<br/>
+
 # Elixir
 An interactive chat bot that can assist the user with a potential health threat.
 
