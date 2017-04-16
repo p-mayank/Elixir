@@ -33,13 +33,13 @@ def generateQuestions(kid, choice_id):
         flag=request.conditions[0]["probability"]
     except:
         flag=1
-        print("This sounds critical. You may want to consult a doctor instead.")
+        print("Elixir: This sounds critical. You may want to consult a doctor instead.")
         return
 
 
 
     while(flag<0.20):
-        print(request.question.text)
+        print("Elixir: "+request.question.text)
         prev_out = request.conditions[0]['name']
         #print(request.conditions)
         entities = request.question.items
@@ -47,8 +47,8 @@ def generateQuestions(kid, choice_id):
         # for i in range(len(entities)):
         #     print(entities[i]["id"])
         #     print(entities[i]["name"])
-        print(entities[0]["name"]+"?")
-        new_input = raw_input("Enter your Choice"+"(Yes/No/Maybe/DontAsk): ")
+        print("Elixir: "+entities[0]["name"]+"?")
+        new_input = raw_input("Elixir: Enter your Choice"+"(Yes/No/Maybe/DontAsk): ")
         new_input = new_input.lower()
         if(new_input=="yes"):
             request.add_symptom(entities[0]["id"], "present")
@@ -65,17 +65,17 @@ def generateQuestions(kid, choice_id):
         except:
             flag=1
             disease = prev_out
-            print("You may have "+disease)
+            print("Elixir: You may have "+disease)
             external_page = wikipedia.page(disease)
-            print("External URL(For more info): "+external_page.url)
+            print("Elixir: External URL(For more info): "+external_page.url)
             return
 
 
     disease = request.conditions[0]['name']
-    print("You may have "+disease)
+    print("Elixir: You may have "+disease)
     external_page = wikipedia.page(disease)
     print(wikipedia.summary(disease, sentences=1))
-    print("External URL(For more info): "+external_page.url)
+    print("Elixir: External URL(For more info): "+external_page.url)
 
 
 
@@ -121,24 +121,21 @@ def requestquery(input):
     except:
         pass
     if(disease=="disease name" or disease=="body"):
-        print("Medi API")
         generateID(input)
-        print(symptom)
     elif(symptom):
-        print("Medi API2")
         generateID(input)
     else:
         if(response["result"]["parameters"]["simplified"]=="goodbye"):
-            print("Take Care.")
+            print("Elixir: Take Care.")
             sys.exit()
-        print(response['result']['fulfillment']['speech'])
+        print("Elixir: "+response['result']['fulfillment']['speech'])
 
 
 def main():
-    inputstring = raw_input("Hey, type something: ")
+    inputstring = raw_input("Elixir: Hey, type something: ")
     while(inputstring!='exit'):
         requestquery(inputstring)
-        inputstring = raw_input("Hey, type something: ")
+        inputstring = raw_input("Elixir: Hey, type something: ")
 
 
 if __name__ == '__main__':
