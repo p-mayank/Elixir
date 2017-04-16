@@ -126,11 +126,13 @@ def requestquery(input):
         generateID(input)
     else:
         try:
-            if(response["result"]["parameters"]["simplified"]=="goodbye"):
-                print("Elixir: Take Care.")
-                sys.exit()
+            goodbye_check = response["result"]["parameters"]["simplified"]
         except:
-            print("Elixir: "+response['result']['fulfillment']['speech'])
+            goodbye_check = ""
+        if(goodbye_check=="goodbye"):
+            print("Elixir: Take Care.")
+            sys.exit()
+        print("Elixir: "+response['result']['fulfillment']['speech'])
 
 
 def main():
