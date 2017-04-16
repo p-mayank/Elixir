@@ -1,0 +1,3 @@
+apiai
+infermedica_api
+wikipedia
