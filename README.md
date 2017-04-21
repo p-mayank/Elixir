@@ -15,3 +15,6 @@ $ git clone https://github.com/p-mayank/Elixir <br/>
 $ cd Elixir <br/>
 $ pip install -r dependencies.txt <br/>
 $ python bot.py <br/>
+
+# Demonstrative Video
+[YouTube Link](https://www.youtube.com/watch?v=Fzgpu2CTj0A)
